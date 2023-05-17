@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { LoginPage } from "../auth"
-import { HomeRoutes } from "../smart-home"
+import { HomeRoutes } from "../fotomaton"
 import { PrivateRoute } from "./PrivateRoute"
 import { PublicRoute } from "./PublicRoute"
 

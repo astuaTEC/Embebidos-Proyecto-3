@@ -1,14 +1,12 @@
 import { useContext } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/context/AuthContext';
-import { HouseContext } from '../../house-states/context/HouseContext';
+
 
 
 export const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
-
-    const { logoutHouse } = useContext(HouseContext);
 
     const navigate = useNavigate();
 
@@ -35,13 +33,6 @@ export const Navbar = () => {
                         to="/home"
                     >
                         Home
-                    </NavLink>
-
-                    <NavLink
-                        className={({isActive}) => `nav-item nav-link ${isActive ? 'active' : ''}`}
-                        to="/camera"
-                    >
-                        Camera
                     </NavLink>
                     
                 </div>

@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { Navbar } from "../../ui"
-import { CameraPage, HomePage } from "../pages"
+import { CameraPage } from "../pages"
 
 
 export const HomeRoutes = () => {
@@ -10,10 +10,9 @@ export const HomeRoutes = () => {
 
             <div className="container">
                 <Routes>
-                    <Route path="home" element={<HomePage />} />
-                    <Route path="camera" element={<CameraPage />} />
+                    <Route path="home" element={<CameraPage />} />
 
-                    <Route path="/" element={<Navigate to="home" replace/>} />
+                    <Route path="/*" element={<Navigate to="home" replace/>} />
                 </Routes>
 
             </div>
