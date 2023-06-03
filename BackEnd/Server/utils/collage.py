@@ -3,17 +3,13 @@ import os, shutil
 import time
 from joblib import Parallel, delayed
 # Ruta al directorio que contiene las imágenes
-directory = "./Server/src/"
+directory = "./src/"
 
-# Obtener la lista de archivos de imagen en el directorio
-files = [f for f in os.listdir(directory) if f.endswith(('.jpg', '.jpeg', '.png'))]
 
 # Dimensiones del collage
-collage_width = 150
-collage_height = 1350
+collage_width = 320
+collage_height = 960
 
-# Crear una imagen en blanco para el collage
-collage_image = Image.new("RGB", (collage_width, collage_height), (255, 255, 255))
 
 # Función para procesar cada imagen y colocarla en el collage
 def process_image(image_file):
@@ -22,10 +18,10 @@ def process_image(image_file):
         image = Image.open(image_path)
 
         # Redimensionar la imagen para que se ajuste al tamaño del collage
-        image = image.resize((150, 150))
+        image = image.resize((320, 160))
 
         # Crear una nueva imagen en blanco para la imagen actual
-        image_canvas = Image.new("RGB", (image.width, image.width), (255, 255, 255))
+        image_canvas = Image.new("RGB", (320, 160), (255, 255, 255))
 
         # Copiar la imagen en blanco en la nueva imagen
         image_canvas.paste(image)
@@ -41,6 +37,8 @@ def process_image(image_file):
         return None
 
 def createCollage():
+    # Obtener la lista de archivos de imagen en el directorio
+    files = [f for f in os.listdir(directory) if f.endswith(('.jpg', '.jpeg', '.png'))]
     print("-----------------------------------------------------")
     print("Creando Collage sin paralelismo:")
     start_time = time.time()
@@ -72,7 +70,7 @@ def createCollage():
             y += image.height
 
     # Guardar el collage resultante
-    final_collage.save("./Server/image/collage.jpg")
+    final_collage.save("/Server/image/collage.jpg")
 
     end_time = time.time()
     total_time = end_time - start_time
@@ -86,7 +84,8 @@ def createCollage():
 
 def createCollageMulti():
 
-
+    # Obtener la lista de archivos de imagen en el directorio
+    files = [f for f in os.listdir(directory) if f.endswith(('.jpg', '.jpeg', '.png'))]
     print("-----------------------------------------------------")
     print("Creando Collage con paralelismo:")
 
@@ -120,7 +119,7 @@ def createCollageMulti():
     
 
     # Guardar el collage resultante
-    final_collage.save("./Server/image/collage.jpg")
+    final_collage.save("/Server/image/collage.jpg")
 
     end_time = time.time()
     total_time = end_time - start_time
@@ -132,11 +131,11 @@ def createCollageMulti():
 
 def clean():
         
-    folder = '/Users/GabuRolo/Documents/Progras/embebidos/P3/Embebidos-Proyecto-3/BackEnd/Server/image'
+    #folder = '/Users/GabuRolo/Documents/Progras/embebidos/P3/Embebidos-Proyecto-3/BackEnd/Server/image'
     
     
     #Para que elimine las imagenes viejas
-    #folder = /Server/src/ 
+    folder = "./src/"
     for filename in os.listdir(folder):
         file_path = os.path.join(folder, filename)
         try:
