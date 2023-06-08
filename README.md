@@ -13,7 +13,7 @@ Crear un fotomatón utilizando una cámara conectada a una Raspberry Pi 2 para t
 6. Ejecutar el comando `python3 main.py`.
 
 Del lado del FrontEnd:
-1. Abrir el código fuente de FrontEnd (`cd FronEnd`)
+1. Abrir el código fuente de FrontEnd (`cd FrontEnd`)
 2. Ejecutar el comando `yarn install`
 3. Modificar el archivo `.env` con la URL que tiene la RPi 2.
 4. Ejecutar el comando `yarn dev`
